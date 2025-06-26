@@ -20,7 +20,7 @@ jobs:
       run: pip install bandit
 
     - name: Run Bandit Scan
-      run: bandit -ll -ii -r . -f json -o bandit-report.json
+      run: bandit -ll -ii -r . -f json -o sca-report.json
 
     - name: Upload Artifact
       uses: actions/upload-artifact@v4.6.2
@@ -62,6 +62,7 @@ jobs:
         command: quickview,cves
         only-severities: critocal,high
         sarif-file: scout-report.sarif
+        exit-code: true
 
     - name: Upload Artifact
       uses: actions/upload-artifact@v4.6.2
