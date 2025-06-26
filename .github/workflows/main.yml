@@ -59,7 +59,7 @@ jobs:
       with:
         dockerhub-user: ${{ secrets.DOCKERHUB_USERNAME }}
         dockerhub-password: ${{ secrets.DOCKERHUB_TOKEN }}
-        commend: quickview,cves
+        command: quickview,cves
          
     
     
