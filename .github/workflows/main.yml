@@ -26,8 +26,8 @@ jobs:
       uses: actions/upload-artifact@v4.6.2
       if: always()
       with:
-        name: bandit-findings
-        path: bandit-report.json
+        name: safety-check-findings
+        path: sca-report.json
 
   image_scan:
     name: Build Image and Run Image Scan
@@ -60,7 +60,15 @@ jobs:
         dockerhub-user: ${{ secrets.DOCKERHUB_USERNAME }}
         dockerhub-password: ${{ secrets.DOCKERHUB_TOKEN }}
         command: quickview,cves
-         
+        only-severities: critocal,high
+        sarif-file: scout-report.sarif
+
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4.6.2
+      if: always()
+      with:
+        name: docker-scout-findings
+        path: scout-report.sarif
     
     
 
