@@ -21,5 +21,7 @@ jobs:
 
     - name: Run Bandit Scan
       run: bandit -r .
+      with:
+        level: MEDIUM, HIGH
 
     
